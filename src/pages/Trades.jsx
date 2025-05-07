@@ -4,6 +4,7 @@ import axios from "axios";
 
 export function Trades() {
   const [trades, setTrades] = useState([]);
+  const navigate = useNavigate();
 
   // Facciamo chiamata axios a mount del componente
   useEffect(() => {
@@ -28,7 +29,13 @@ export function Trades() {
             key={trade.id}
             className="bg-white rounded-2xl shadow-md p-4 border border-gray-200"
           >
-            <h3 className="text-lg font-semibold mb-2">{trade.instrument}</h3>
+            <h3
+              className="text-lg font-semibold mb-2 text-blue-600 hover:underline cursor-pointer"
+              onClick={() => navigate(`/trades/${trade.id}`)}
+            >
+              {trade.instrument}
+            </h3>
+
             <p>
               <span className="font-medium">Tipo:</span> {trade.tradeType}
             </p>

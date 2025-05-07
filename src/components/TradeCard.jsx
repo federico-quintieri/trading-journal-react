@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export function TradeCard({ trade }) {
+  const navigate = useNavigate();
   return (
     <div className="border rounded-2xl shadow-md p-4 bg-white max-w-md mx-auto my-4">
       <h2 className="text-xl font-bold mb-2">
@@ -25,6 +28,12 @@ export function TradeCard({ trade }) {
       <p>
         <strong>Notes:</strong> {trade.notes}
       </p>
+      <button
+        className="text-lg font-semibold mb-2 text-blue-600 hover:underline cursor-pointer"
+        onClick={() => navigate(`/`)}
+      >
+        Torna indietro
+      </button>
     </div>
   );
 }
